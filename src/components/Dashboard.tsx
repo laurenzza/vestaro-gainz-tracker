@@ -1,5 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 import { 
   TrendingUp, 
   TrendingDown, 
@@ -7,7 +9,10 @@ import {
   PieChart, 
   Plus,
   ArrowUpRight,
-  ArrowDownRight
+  ArrowDownRight,
+  Bell,
+  Filter,
+  Calendar
 } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart as RechartsPieChart, Cell, Pie } from 'recharts';
 
@@ -109,7 +114,75 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* Charts */}
+        {/* Period Filter */}
+        <Card className="investment-card">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Filter className="h-5 w-5 text-primary" />
+              Filter Periode
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-4">
+              <Select defaultValue="6months">
+                <SelectTrigger className="w-48">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="7days">7 Hari Terakhir</SelectItem>
+                  <SelectItem value="30days">30 Hari Terakhir</SelectItem>
+                  <SelectItem value="3months">3 Bulan Terakhir</SelectItem>
+                  <SelectItem value="6months">6 Bulan Terakhir</SelectItem>
+                  <SelectItem value="1year">1 Tahun Terakhir</SelectItem>
+                  <SelectItem value="all">Semua Waktu</SelectItem>
+                </SelectContent>
+              </Select>
+              <Button variant="outline">
+                <Calendar className="h-4 w-4 mr-2" />
+                Custom Range
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Notifications Section */}
+        <Card className="investment-card">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Bell className="h-5 w-5 text-primary" />
+              Notifikasi & Pengingat
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between p-3 bg-accent/10 rounded-lg border-l-4 border-accent">
+                <div>
+                  <p className="font-medium text-accent">Evaluasi Portfolio Bulanan</p>
+                  <p className="text-sm text-muted-foreground">Saatnya mengevaluasi performa investasi bulan ini</p>
+                </div>
+                <Badge variant="outline" className="bg-accent/20 text-accent border-accent/20">
+                  Baru
+                </Badge>
+              </div>
+              
+              <div className="flex items-center justify-between p-3 bg-warning/10 rounded-lg border-l-4 border-warning">
+                <div>
+                  <p className="font-medium text-warning">Diversifikasi Portfolio</p>
+                  <p className="text-sm text-muted-foreground">Pertimbangkan menambah obligasi ke portfolio</p>
+                </div>
+                <Badge variant="outline" className="bg-warning/20 text-warning border-warning/20">
+                  Saran
+                </Badge>
+              </div>
+
+              <div className="text-center pt-2">
+                <Button variant="outline" size="sm">
+                  Lihat Semua Notifikasi
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Line Chart */}
           <Card className="investment-card">

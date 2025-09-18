@@ -8,7 +8,9 @@ import {
   Settings,
   Menu,
   X,
-  TrendingUp
+  TrendingUp,
+  Bell,
+  Search
 } from "lucide-react";
 
 interface NavigationProps {
@@ -24,6 +26,9 @@ const AppNavigation = ({ currentView, onViewChange }: NavigationProps) => {
     { id: 'dashboard', label: 'Dashboard', icon: PieChart },
     { id: 'add-investment', label: 'Tambah', icon: Plus },
     { id: 'history', label: 'Riwayat', icon: History },
+    { id: 'search', label: 'Pencarian', icon: Search },
+    { id: 'notifications', label: 'Notifikasi', icon: Bell },
+    { id: 'settings', label: 'Pengaturan', icon: Settings },
   ];
 
   const handleNavClick = (view: string) => {

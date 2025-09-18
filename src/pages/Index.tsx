@@ -6,6 +6,10 @@ import Hero from "@/components/Hero";
 import Dashboard from "@/components/Dashboard";
 import InvestmentForm from "@/components/InvestmentForm";
 import InvestmentHistory from "@/components/InvestmentHistory";
+import SearchData from "@/components/SearchData";
+import Notifications from "@/components/Notifications";
+import Settings from "@/components/Settings";
+import Footer from "@/components/Footer";
 import AppNavigation from "@/components/AppNavigation";
 
 const Index = () => {
@@ -21,6 +25,12 @@ const Index = () => {
         return <InvestmentForm />;
       case 'history':
         return <InvestmentHistory />;
+      case 'search':
+        return <SearchData />;
+      case 'notifications':
+        return <Notifications />;
+      case 'settings':
+        return <Settings />;
       default:
         return <Hero />;
     }
@@ -38,6 +48,9 @@ const Index = () => {
         <div className={currentView !== 'hero' ? 'pt-16 md:pt-20 pb-16 md:pb-0' : ''}>
           {renderCurrentView()}
         </div>
+        
+        {/* Footer - only show when not on hero page */}
+        {currentView !== 'hero' && <Footer />}
         
         <Toaster />
         <Sonner />
