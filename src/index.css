@@ -2,41 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Vestaro Investment App Design System - Professional Financial Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background & Text */
+    --background: 240 10% 98%;
+    --foreground: 220 15% 15%;
 
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 15% 15%;
 
+    /* Primary - Professional Investment Blue */
+    --primary: 217 91% 25%;
+    --primary-light: 217 91% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Success - Profit Green */
+    --success: 142 71% 45%;
+    --success-light: 142 71% 55%;
+    --success-foreground: 0 0% 100%;
+
+    /* Destructive - Loss Red */
+    --destructive: 0 84% 60%;
+    --destructive-light: 0 84% 70%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning - Neutral Orange */
+    --warning: 38 92% 50%;
+    --warning-light: 38 92% 60%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Secondary & Muted */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 25%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    /* Accent - Bright Highlight */
+    --accent: 200 95% 50%;
+    --accent-light: 200 95% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Form Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 25%;
+
+    /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Design System Extensions */
+    --radius: 0.75rem;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 14% 98%));
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(220 15% 15% / 0.1), 0 2px 4px -2px hsl(220 15% 15% / 0.1);
+    --shadow-investment: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-success: 0 8px 25px -8px hsl(var(--success) / 0.4);
+    --shadow-destructive: 0 8px 25px -8px hsl(var(--destructive) / 0.4);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +91,48 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark mode for investment app */
+    --background: 220 15% 9%;
+    --foreground: 220 14% 95%;
+    --card: 220 15% 12%;
+    --card-foreground: 220 14% 95%;
+    
+    --primary: 217 91% 45%;
+    --primary-light: 217 91% 55%;
+    --primary-foreground: 220 15% 9%;
+    
+    --success: 142 71% 45%;
+    --success-light: 142 71% 55%;
+    --success-foreground: 220 15% 9%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-light: 0 84% 70%;
+    --destructive-foreground: 220 15% 9%;
+    
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 220 14% 85%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 65%;
+    
+    --accent: 200 95% 50%;
+    --accent-light: 200 95% 60%;
+    --accent-foreground: 220 15% 9%;
+    
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 217 91% 45%;
+    
+    --popover: 220 15% 12%;
+    --popover-foreground: 220 14% 95%;
+    
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 220 14% 90%;
+    --sidebar-primary: 217 91% 45%;
+    --sidebar-primary-foreground: 220 15% 9%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 220 14% 85%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 217 91% 45%;
   }
 }
 
@@ -100,6 +142,37 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Investment Card Styles */
+  .investment-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-[var(--shadow-card)] transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-investment)];
+  }
+  
+  .profit-card {
+    @apply border-l-4 border-l-success bg-gradient-to-r from-success/5 to-transparent;
+  }
+  
+  .loss-card {
+    @apply border-l-4 border-l-destructive bg-gradient-to-r from-destructive/5 to-transparent;
+  }
+  
+  /* Hero Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  /* Hover Animations */
+  .hover-lift {
+    @apply transition-[var(--transition-smooth)] hover:-translate-y-1 hover:shadow-[var(--shadow-investment)];
+  }
+  
+  /* Background Patterns */
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle, hsl(var(--primary-foreground) / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 }

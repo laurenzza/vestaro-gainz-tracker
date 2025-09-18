@@ -1,13 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import Hero from "@/components/Hero";
+import Dashboard from "@/components/Dashboard";
+import InvestmentForm from "@/components/InvestmentForm";
+import InvestmentHistory from "@/components/InvestmentHistory";
+import AppNavigation from "@/components/AppNavigation";
 
 const Index = () => {
+  const [currentView, setCurrentView] = useState('hero');
+
+  const renderCurrentView = () => {
+    switch (currentView) {
+      case 'hero':
+        return <Hero />;
+      case 'dashboard':
+        return <Dashboard />;
+      case 'add-investment':
+        return <InvestmentForm />;
+      case 'history':
+        return <InvestmentHistory />;
+      default:
+        return <Hero />;
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <TooltipProvider>
+      <div className="min-h-screen bg-background">
+        <AppNavigation 
+          currentView={currentView} 
+          onViewChange={setCurrentView}
+        />
+        
+        {/* Add top padding for mobile to account for fixed header */}
+        <div className={currentView !== 'hero' ? 'pt-16 md:pt-20 pb-16 md:pb-0' : ''}>
+          {renderCurrentView()}
+        </div>
+        
+        <Toaster />
+        <Sonner />
       </div>
-    </div>
+    </TooltipProvider>
   );
 };
 
